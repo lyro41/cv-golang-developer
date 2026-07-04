@@ -1,210 +1,242 @@
-%-----------------------------------------------------------------------------------------------------------------------------------------------%
-%	The MIT License (MIT)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Developer CV
+% LaTeX Class
+% Version 2.0 (12/10/23)
 %
-%	Copyright (c) 2021 Jitin Nair
+% This class originates from:
+% http://www.LaTeXTemplates.com
 %
-%	Permission is hereby granted, free of charge, to any person obtaining a copy
-%	of this software and associated documentation files (the "Software"), to deal
-%	in the Software without restriction, including without limitation the rights
-%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-%	copies of the Software, and to permit persons to whom the Software is
-%	furnished to do so, subject to the following conditions:
-%	
-%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-%	THE SOFTWARE.
-%	
+% Authors:
+% Omar Roldan
+% Based on a template by  Jan Vorisek (jan@vorisek.me)
+% Based on a template by Jan Küster (info@jankuester.com)
+% Modified for LaTeX Templates by Vel (vel@LaTeXTemplates.com)
 %
-%-----------------------------------------------------------------------------------------------------------------------------------------------%
+% License:
+% The MIT License (see included LICENSE file)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %----------------------------------------------------------------------------------------
-%	DOCUMENT DEFINITION
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-% article class because we want to fully customize the page and not use a cv template
-\documentclass[a4paper,12pt]{article}
-
-%----------------------------------------------------------------------------------------
-%	FONT
-%----------------------------------------------------------------------------------------
-
-% % fontspec allows you to use TTF/OTF fonts directly
-% \usepackage{fontspec}
-% \defaultfontfeatures{Ligatures=TeX}
-
-% % modified for ShareLaTeX use
-% \setmainfont[
-% SmallCapsFont = Fontin-SmallCaps.otf,
-% BoldFont = Fontin-Bold.otf,
-% ItalicFont = Fontin-Italic.otf
-% ]
-% {Fontin.otf}
-
-%----------------------------------------------------------------------------------------
-%	PACKAGES
-%----------------------------------------------------------------------------------------
-\usepackage{url}
-\usepackage{parskip} 	
-
-%other packages for formatting
-\RequirePackage{color}
-\RequirePackage{graphicx}
-\usepackage[usenames,dvipsnames]{xcolor}
-\usepackage[scale=0.9]{geometry}
-
-%tabularx environment
-\usepackage{tabularx}
-
-%for lists within experience section
-\usepackage{enumitem}
-
-% centered version of 'X' col. type
-\newcolumntype{C}{>{\centering\arraybackslash}X} 
-
-%to prevent spillover of tabular into next pages
-\usepackage{supertabular}
-\usepackage{tabularx}
-\newlength{\fullcollw}
-\setlength{\fullcollw}{0.47\textwidth}
-
-%custom \section
-\usepackage{titlesec}				
+\documentclass[9pt]{developercv} % Default font size, values from 8-12pt are recommended
 \usepackage{multicol}
-\usepackage{multirow}
-
-%CV Sections inspired by: 
-%http://stefano.italians.nl/archives/26
-\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{10pt}{10pt}
-
-%for publications
-\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
-
-%Setup hyperref package, and colours for links
-\usepackage[unicode, draft=false]{hyperref}
-\definecolor{linkcolour}{rgb}{0,0.2,0.6}
-\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
-\addbibresource{citations.bib}
-\setlength\bibitemsep{1em}
-
-%for social icons
-\usepackage{fontawesome5}
-
-%debug page outer frames
-%\usepackage{showframe}
-
-
-% job listing environments
-\newenvironment{jobshort}[2]
-    {
-    \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
-    \end{tabularx}
-    }
-    {
-    }
-
-\newenvironment{joblong}[2]
-    {
-    \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
-    \end{tabularx}
-    \begin{minipage}[t]{\linewidth}
-    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
-    }
-    {
-    \end{itemize}
-    \end{minipage}    
-    }
-
-
-
+\setlength{\columnsep}{0mm}
 %----------------------------------------------------------------------------------------
-%	BEGIN DOCUMENT
-%----------------------------------------------------------------------------------------
+\usepackage{lipsum}  
+
+
 \begin{document}
 
-% non-numbered pages
-\pagestyle{empty} 
-
 %----------------------------------------------------------------------------------------
-%	TITLE
+%	TITLE AND CONTACT INFORMATION
 %----------------------------------------------------------------------------------------
 
-% \begin{tabularx}{\linewidth}{ @{}X X@{} }
-% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
-% \raisebox{-0.05\height}\faGithub\ username \ | \
-% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
-% \end{tabularx}
+\begin{minipage}[t]{0.48\textwidth} 
+	\vspace{-\baselineskip} % Required for vertically aligning minipages
+	
+	{ \fontsize{16}{20} \textcolor{black}{\textbf{\MakeUppercase{Rostislav Lyupa}}}} % First name
+	
+	\vspace{7pt}
+	
+	{\Large Backend Developer (Go) $\sim$ C++ Developer} % Career or current job title
 
-\begin{tabularx}{\linewidth}{@{} C @{}}
-\Huge{Rostislav Lyupa} \\[7.5pt]
-\href{https://github.com/lyro41}{\raisebox{-0.05\height}\faGithub\ lyro41} \ $|$ \ 
-\href{https://linkedin.com/in/rostislav-lyupa}{\raisebox{-0.05\height}\faLinkedin\ rostislav-lyupa} \ $|$ \ 
-\href{mailto:rostislav.a.lyupa@gmail.com}{\raisebox{-0.05\height}\faEnvelope \ rostislav.a.lyupa@gmail.com} \ $|$ \ 
-\href{tel:+79959040231}{\raisebox{-0.05\height}\faMobile \ +7(995)-904-02-31} \\
-\end{tabularx}
+    \vspace{8pt}
+    
+	{\Large Distributed Systems | High-Load Infrastructure} % Career or current job title
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.21\textwidth} % 20% of the page width for the first row of icons
+	\vspace{-\baselineskip} % Required for vertically aligning minipages
+	
+	% The first parameter is the FontAwesome icon name, the second is the box size and the third is the text
+	\icon{Telegram}{11}{\href{https://t.me/rrrrusty}{@rrrrusty}}\\
+    \icon{Github}{11}{\href{https://github.com/lyro41}{github.com/lyro41}}\\
+    \icon{Linkedin}{11}{\href{https://www.linkedin.com/in/rostislav-lyupa/}{/in/rostislav-lyupa}}\\  
+	
+\end{minipage}
+\begin{minipage}[t]{0.28\textwidth} % 27% of the page width for the second row of icons
+	\vspace{-\baselineskip} % Required for vertically aligning minipages
+	
+	\icon{Envelope}{11}{\href{mailto:rostislav.a.lyupa@gmail.com}{rostislav.a.lyupa@gmail.com}}\\
+    \icon{MapMarker}{11}{Open to relocation:}\\   
+    \icon{MapMarker}{11}{AM, GE, RS, AE}\\ 
+    
+\end{minipage}
+
 
 %----------------------------------------------------------------------------------------
-% EXPERIENCE SECTIONS
+%	INTRODUCTION, SKILLS AND TECHNOLOGIES
 %----------------------------------------------------------------------------------------
 
-%Interests/ Keywords/ Summary
-\section{Summary}
-Backend engineer with nearly 2 years of hands-on experience in Golang development, API integration, and performance optimization. Passionate about building scalable microservices and designing efficient databases. Proven by reducing internal analytical data processing time from months to a few days. 
+\begin{minipage}[t]{0.46\textwidth}
+    \cvsect{Summary}
+	\vspace{-6pt}
+ 
+	Backend/System engineer with 2 years of production experience building high-load FinTech infrastructure in Go, plus a broader 5+ year hands-on background in C/C++ system engineering. Scaled a trading platform through 10x+ volume surges and cut analytics processing time $\sim$20x. Background also includes ICPC Quarter-finalist standing and national olympiad medals. \\
+\end{minipage}
+\hfill % Whitespace between
+\begin{minipage}[t]{0.4875\textwidth}
+    \cvsect{Skills}
+    \vspace{-6pt}
+    
+    \begin{minipage}[t]{0.23\textwidth}
+        \textbf{Languages}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.7\textwidth}
+      Go, C/C++, Python, C\#, SQL 
+    \end{minipage}
+    \vspace{2.5mm}
+    
+    \begin{minipage}[t]{0.23\textwidth}
+        \textbf{Backend \\ \& Infra}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.7\textwidth}
+      ClickHouse, PostgreSQL, Protobuf, \\ gRPC, REST API, Docker, Kubernetes
+    \end{minipage}
+    \vspace{2.5mm}
+    
+    \begin{minipage}[t]{0.23\textwidth}
+        \textbf{Observability}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.7\textwidth}
+      Prometheus, Grafana, pprof
+    \end{minipage}
+    \vspace{2.5mm}
+    
+    \begin{minipage}[t]{0.23\textwidth}
+        \textbf{Tools \& GUI}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.7\textwidth}
+      CMake, Git, Linux, Qt, Telegram Bot API
+    \end{minipage}
+    
+\end{minipage}
 
-%Experience
-\section{Work Experience}
+%----------------------------------------------------------------------------------------
+%	EXPERIENCE
+%----------------------------------------------------------------------------------------
+\vspace{-10 pt}
+\cvsect{Experience}
+\begin{entrylist}
+	\entry
+        {08/2023 -- 07/2025}
+		{Backend Developer (Go)}
+		{\href{https://profitage.com}{Profitage}}
+		{\vspace{-10pt}
+        \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt, leftmargin=-1pt]
+            \item Built a trading simulation engine and a stable Bybit API integration using worker pools and proxy rotation, maintaining stability through 10x+ volume surges and allowing users to test trading strategies in demo.
+            \item Redesigned analytical database architecture and SQL query patterns, cutting processing time from 30 days to 1–2 days by parallelizing independent subprocesses and eliminating redundant execution.
+            \item Built dashboards to automate reporting and streamline data analysis; created testing tools and API mocks.
+            \item Monitored system health and logs, proactively resolving production bugs and connectivity issues.
+        \end{itemize} 
+        \texttt{Go | ClickHouse | Grafana | Prometheus | gRPC | REST API | Protobuf | Kubernetes | Git}}
+	\entry
+		{08/2022 -- 09/2022}
+		{Gameplay Developer (Freelance)}
+		{\href{https://steamcommunity.com/sharedfiles/filedetails/?id=2824879484}{The Story of Red Cloud}}
+		{\vspace{-10pt}
+        \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt, leftmargin=-1pt]
+            \item Overhauled legacy C\# codebase and mentored the team on state machine patterns for complex AI.
+            \item Resolved critical bugs and physics exploits, unblocking core gameplay for thousands of players.
+        \end{itemize} 
+        \texttt{C\# | Git | Code Review | Mentoring}}
+\end{entrylist}
 
-\begin{jobshort}{Profitage}{Aug 2023 - Jul 2025}
-\begin{itemize}
-\item Developed and implemented integration with Bybit cryptocurrency exchange, enabling entry into a new market, which, in combination with advertising campaigns, led to a 16x increase in monthly trading volumes over two months
-\item Significantly optimized internal microservice performance, reducing data processing time from one month to 2-3 days through parallelization
-\item Developed software utilities and scripts for convenient and rapid testing of third-party APIs and internal systems, increasing development productivity by 20\%
-\item Conducted regular monitoring of software product and related APIs performance
-\item Maintained, developed, and updated open-source repositories and forks of third-party APIs
-\item Modeled and simulated exchange trading on the backend
-\item Aggregated and visualized internal analytical data to improve expert evaluation of trading strategies
-\item Wrote and optimized over 100 SQL queries, including 10-20 complex analytical queries
-\end{itemize}
-\end{jobshort}
-
-%Projects
-\section{Open-Source Contributions}
-Active contributor to cryptocurrency exchange libraries: \\
-\textbf{\href{https://github.com/ccxt/go-binance/pulls?q=is\%3Apr+author\%3Alyro41+is\%3Aclosed}{go-binance}} (3 PRs) and \textbf{\href{https://github.com/hirokisan/bybit/pulls?q=is\%3Apr+author\%3Alyro41+is\%3Aclosed}{bybit}} (11 PRs) — implementing endpoints, refactoring, features, and bug fixes.
+%----------------------------------------------------------------------------------------
+%	Projects
+%----------------------------------------------------------------------------------------
+\cvsect{Projects}
+\begin{entrylist}
+    \entry
+		{\texttt{C++ | Qt | CMake}}
+		{QtSIESTA: Scientific Visualization Engine}
+		{\href{https://github.com/lyro41/SiestaChartWidget}{https://github.com/lyro41/SiestaChartWidget}}
+		{\vspace{-10pt}
+        \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt, leftmargin=-1pt]
+            \item Engineered a fully cross-platform coordinator module managing SIESTA simulation pipeline.
+            \item Built a high-performance real-time parser for streaming molecular modeling data, with a custom 2D chart rendering engine in Qt optimized for high-frequency updates and smooth data plotting.
+        \end{itemize}}
+    \entry
+		{\texttt{C++ | LaTeX}}
+		{Custom Programming Language \& Compiler (Group of 3)}
+		{\href{https://github.com/lyro41/Compiler}{https://github.com/lyro41/Compiler}}
+		{\vspace{-10pt}
+        \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt, leftmargin=-1pt]
+            \item Designed and implemented a recursive descent parser and lexical analyzer from scratch.
+            \item Authored a comprehensive 33-page Language Specification and User Manual, defining and explaining the grammar, control structures, and usage patterns of the \texttt{Br9h} programming language.
+        \end{itemize}}
+	\entry
+		{\texttt{C++ | Qt}}
+		{Scientific Variable Evaluator}
+	    {\href{https://github.com/lyro41/SuperCalculator}{https://github.com/lyro41/SuperCalculator}}
+		{\vspace{-10pt}
+        \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt, leftmargin=-1pt]
+            \item Developed a C++ math evaluator with a Qt GUI and a library of math functions. 
+            \item Managed big integers and arbitrary-precision logic by handling mantissa and exponent manually.
+            \item Programmed the Shunting-yard to parse expressions of variables and numbers into RPN.
+            \item Developed a recursive system where variables can refer to other variables in their formulas.
+        \end{itemize}}
+    \entry
+		{\texttt{C++ | Qt}}
+		{Native Desktop Calendar \& Task Manager}
+		{\href{https://github.com/lyro41/DesktopCalendar}{https://github.com/lyro41/DesktopCalendar}}
+		{\vspace{-10pt}
+        \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt, leftmargin=-1pt]
+            \item Built a desktop calendar and task manager using C++ and the Qt framework. 
+            \item Designed a custom UI layout with a feature to change the calendar background.
+            \item Developed logic for recurring events and local storage for saving tasks.
+        \end{itemize}}
+\end{entrylist}
 
 %----------------------------------------------------------------------------------------
 %	EDUCATION
 %----------------------------------------------------------------------------------------
-\section{Education}
-\begin{tabularx}{\linewidth}{@{}l X@{}}	
-2021 - present (on leave) & \textbf{National University of Science and Technology MISIS, Moscow}
-
-Applied Mathematics Program \hfill (GPA: 4.0/4.0 | first two years)  \\ 
-
-2018 - 2021 & \textbf{Kapitsa Phystech-Lyceum (MIPT-affiliated Specialized High School)} 
-
-Computer Science Track \hfill  (GPA: 4.71/5.00) \\
-\end{tabularx}
+\vspace{-10 pt}
+\cvsect{Education}
+\begin{entrylist}
+    \entry
+		{2021 - present \\ (on leave)}
+		{Bachelor's Degree}
+		{National University of Science and Technology MISIS, Moscow}
+		{Applied Mathematics Program \hfill \texttt{(first two years | GPA: 5.00/5.00)}}
+    \entry
+		{2018 - 2021}
+		{High School Diploma}
+		{Kapitsa Phystech-Lyceum (MIPT-affiliated Specialized High School)}
+		{Computer Science Track \hfill  \texttt{(GPA: 4.71/5.00)}}
+\end{entrylist}
 
 %----------------------------------------------------------------------------------------
-%	SKILLS
+%	VOLUNTEERING
 %----------------------------------------------------------------------------------------
-\section{Skills}
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-Programming Languages & Go, C/C++, Python \\
-Technologies \& Tools &  \normalsize{Git, Linux, SQL, ClickHouse, PostgreSQL, gRPC, REST API, Protobuf, Docker, Kubernetes, Grafana, Prometheus, Telegram Bot API}\\
-Go Ecosystem & Goroutines, Channels, Context, Sync, net/http, testing, pprof \\
-Concepts & OOP, Concurrency, Saga, Microservices, Event-Driven Architecture, \\ & Message Queues, WebSockets, Distributed Systems\\
-Languages  &  \normalsize{English - C2 Proficient (\href{https://cert.efset.org/en/BQJqzH}{EF SET Certified 80/100}), Russian - Native}\\  
-\end{tabularx}
+\vspace{-10 pt}
+\cvsect{Volunteering}
+\begin{entrylist}
+    \entry
+		{2021 - present}
+		{Jury Member (Computer Science)}
+		{"Start to Innovate" Student Conference, Kapitsa Phystech-Lyceum}
+		{}
+\end{entrylist}
 
-\vfill
-\center{\footnotesize Last updated: \today}
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	LANGUAGES
+%----------------------------------------------------------------------------------------
+\vspace{-23 pt}
+	\cvsect{Languages}
+    \vspace{-6pt}
+    
+    \hspace{26mm} \textbf{English} -- C2 (\href{https://cert.efset.org/en/BQJqzH}{EF SET Certified 80/100}), \textbf{Russian} -- native
+
+%----------------------------------------------------------------------------------------
 
 \end{document}
